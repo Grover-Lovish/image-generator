@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+{% include "nav.html" %}
+
+<div id="about" class="container-fluid  text-center" style="background-image: url(/static/images/bg/2.jpg);">
+    <div class="space100"></div>
+    <div class="container">
+        <form action="" method="post">
+        {% csrf_token %}
+            <div class="space60"></div>
+            <label for="">
+                <h2><b>Enter your imagination here</b></h2>
+            </label>
+            <input type="text" name="imagination" style="width: 100%; font-size: large;">
+            <div class="space10"></div>
+            <button class="btn btn-primary space20">Generate</button>
+        </form>
+    </div>
+    <div class="space20"></div>
+    <div class="container" style="height: 500px; background-color: white; border-radius: 10px; border: solid #ebebeb;">
+        {% if object %}
+        <div>
+            <img src = "{{object.ai_image.url}}" alt = "{{object.phrase}}">
+        </div>
+        {% else %}
+        {% endif %}
+    </div>
+    <div class="space100"></div>
+</div>
+{% include "footer.html" %}
+{% endblock %}

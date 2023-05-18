@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+<div id="about" class="container-fluid about-inline text-center bg-available" style="height: 100vh;">
+    <div class="space50"></div>
+    <h3>Log-In </h3>
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form" action="" method = "POST">
+            {% csrf_token %}
+                <input type="text" placeholder="username" name = "username"/>
+                <input type="password" placeholder="password"name = "password" />
+                <button>login</button>
+                <p class="message">Not registered? <a href="{% url 'register' %}">Create an account</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

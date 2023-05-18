@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+<div id="about" class="container-fluid about-inline text-center bg-available" style="height: 100vh;">
+    <h3>Sign-Up </h3>
+    <div class="login-page">
+        <div class="form">
+            {% if form %}
+            <form class="login-form" method="POST">
+            {% csrf_token %}
+                {% with form.errors.value.0|first as first_doc %}{{ first_doc.id }}{% endwith %}
+                {% if form.errors.username %}
+                <div class="alert bg-primary text-center" role="alert">
+                    <span class="text-white">{{form.errors.username.0}}</span>
+                </div>
+                {% elif form.errors.email %}
+                <div class="alert bg-primary text-center" role="alert">
+                    <span class="text-white">{{form.errors.email.0}}</span>
+                </div>
+                {% elif form.errors.password1 %}
+                <div class="alert bg-primary text-center" role="alert">
+                    <span class="text-white">{{form.errors.password1.0}}</span>
+                </div>
+                {% elif form.errors.password2 %}
+                <div class="alert bg-primary text-center" role="alert">
+                    <span class="text-white">{{form.errors.password2.0}}</span>
+                </div>
+                {% endif %}
+                    {{form.username}}
+                    {{form.email}}
+                    {{form.password1}}
+                    {{form.password2}}
+                    <button>Register</button>
+                    <p class="message">Already have an account? <a href="{% url 'login' %}">Log-In</a></p>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

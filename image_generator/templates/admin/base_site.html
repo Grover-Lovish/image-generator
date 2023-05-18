@@ -1,0 +1,31 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block branding %}
+
+{% block extrastyle %}
+{{ block.super }}
+  <link rel='stylesheet' href="{% static 'css/admin.css' %}">
+  {{ block.super }}
+    <style type="text/css">
+        body.login {
+            background-image: url("{%static 'images/bg.svg'  %} ") ;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+        
+            :root {
+              --primary: #024d94;
+              --secondary: #024d94;
+              --accent: #f8d171;
+              --primary-fg: #fff;
+              --header-color: #f8d171;
+              --darkened-bg: #f8d171;}
+    </style>
+{% endblock %}
+<h1 = 'head'>
+<img src="{% static 'images/logo.png' %}" alt="  djDemo" class="brand_img" height="80">
+  </h1>
+{% endblock %}
+
+

@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+{% include "nav.html" %}
+
+<!-- Hero Header -->
+<div class="space100"></div>
+<div class="space100"></div>
+<div class="intro hero2">
+    <div class="container">
+        <div class="row">
+            <div class="space100"></div>
+            {% comment %} <div class="space100"></div> {% endcomment %}
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <h3>TECH TONIC AI<br>AI Image Generator</h3>
+                <p>Nam tellus turpis blandit et ligula vel lacinia massa sit amet minus fugit in ipsum semper euismod
+                    massa auctor magna eget nunc iaculis nunc.</p>
+                <div class="space40"></div>
+                <div class="dual-btn">
+                    <a href="{% url 'generator' %}" class="btn btn-lg btn-ylw">Try Now <i class="icon-arrow-right"></i></a>
+                </div>
+
+                <div class="space100"></div>
+                <div class="space100"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="container">
+    <div class="space100"></div>
+    <!-- INFO CONTENT -->
+    <div class="info-content">
+        <div class="container">
+            <div class="row center-content">
+                <div class="col-md-6">
+                    <h3>About The Project </h3>
+                    <img src="/static/images/line.png" class="img-responsive" alt="" /><br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed dui mollis, finibus odio eget,
+                        cursus nibh. Ut accumsan, ipsum a hendrerit tempor, ex tortor consectetur tortor, at viverra leo
+                        enim at tortor. Mauris tristique
+                        purus purus, sit amet tempor lacus suscipit at. Quisque tristique orci magna, vitae tincidunt
+                        lacus maximus vitae. Lorem ipsum dolor sit amet, consectetur.
+                    </p>
+                    <ul class="list">
+                        <li><i class="icon-check"></i> Nunc quis justo sed odio scelerisque.</li>
+                        <li><i class="icon-check"></i> Duis tristique lorem non risus dignissim.</li>
+                    </ul>
+                    <div class="space30"></div>
+                    <a href="{% url 'generator' %}" class="btn btn-lg btn-default">Try Now <i class="icon-arrow-right"></i></a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="/static/images/feature/01.png" class="pull-right img-responsive" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+</div>
+<!-- <div class="space100"></div> -->
+
+<!-- FEATURES -->
+<section id="feature" class="services bg-light">
+    <div class="container">
+        <div class="about-inline text-center">
+            <h3>Features of Tech Tonic AI </h3>
+            <img src="/static/images/line.png" class="img-responsive center-block" alt="" />
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus bibendum in sit
+                amet leo. Mauris feugiat erat tellus.</p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <!-- Column -->
+                <div class="col-md-6 Protem-feature">
+                    <div class="box-body d-flex">
+                        <div class="feature-icon"><i class="ilmosys-data-network"></i></div>
+                        <div class="Protem-feature">
+                            <a href="#">
+                                <h3>Data Stored</h3>
+                            </a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio finibus
+                                bibendum in sit amet leo. Mauris feugiat erat tellus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <!-- Column -->
+                    <div class="col-md-6 Protem-feature">
+                        <div class="box-body d-flex">
+                            <div class="feature-icon"><i class="ilmosys-fingerprint-2"></i></div>
+                            <div class="Protem-feature">
+                                <a href="#">
+                                    <h3>Fingerprint lock</h3>
+                                </a>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio
+                                    finibus bibendum in sit amet leo. Mauris feugiat erat tellus.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Column -->
+                        <div class="col-md-6 Protem-feature">
+                            <div class="box-body d-flex">
+                                <div class="feature-icon"><i class="ilmosys-idea-3"></i></div>
+                                <div class="Protem-feature">
+                                    <a href="#">
+                                        <h3>Innovative Idea</h3>
+                                    </a>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et purus a odio
+                                        finibus bibendum in sit amet leo. Mauris feugiat erat tellus.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <!-- Column -->
+                            <div class="col-md-6 Protem-feature">
+                                <div class="box-body d-flex">
+                                    <div class="feature-icon"><i class="ilmosys-password-2shopping"></i></div>
+                                    <div class="Protem-feature">
+                                        <a href="#">
+                                            <h3>Password Protect</h3>
+                                        </a>
+                                        <p class="m-t-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                                            et purus a odio finibus bibendum in sit amet leo. Mauris feugiat erat
+                                            tellus.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="review products-review">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="review-text">
+                    {% if fbks != None %}
+                    {% for fbk in fbks %}
+                    <div>
+                        <p>
+                            {{fbk.message}}
+                        </p>
+                        <span class="author">{{fbk.name}} <br> <small> Date : {{fbk.date}} </small></span>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="review-title col-md-12">
+            <h1>REVIEW</h1>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="space100"></div>
+
+<div class="container">
+    <div class="about-inline text-center" style="padding-top: 0%;">
+        <h3>FEEDBACK </h3>
+    </div>
+    <form method="post" action="feedback">
+        {% csrf_token %}
+        <input required name="name" type="text" class="feedback-input" placeholder="Name" />
+        <input required name="email" type="email" class="feedback-input" placeholder="Email" />
+        <input required name="mobile" type="tel" class="feedback-input" placeholder="Mobile" />
+        <textarea required name="message" class="feedback-input" placeholder="Feedback"></textarea>
+        <input type="submit" value="SUBMIT" />
+    </form>
+    <div class="space100"></div>
+</div>
+
+{% include "footer.html" %}
+
+{% endblock %}
